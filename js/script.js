@@ -3,7 +3,7 @@
 
   // ---- Typed text effect ----
   const titles = [
-    'AI Engineer',
+    'Artificial Intelligence Engineer',
     'Machine Learning Engineer',
     'Software Developer',
     'Research Enthusiast',
@@ -96,10 +96,16 @@
 
   // ---- Scroll reveal animation ----
   const revealElements = document.querySelectorAll(
-    '.info-card, .timeline-item, .edu-card, .skill-category, .project-card, .achievement-section, .pub-category, .contact-form, .contact-item'
+    '.info-card, .timeline-item, .edu-timeline-item, .skill-category, .project-card, .achievement-section, .pub-category, .contact-form, .contact-item, .about-content, .about-cards'
   );
 
-  revealElements.forEach(el => el.classList.add('fade-in'));
+  revealElements.forEach(el => {
+    if (el.classList.contains('slide-in-left') || el.classList.contains('slide-in-right') || el.classList.contains('scale-in') || el.classList.contains('rotate-in')) {
+      // Keep existing animation class
+    } else {
+      el.classList.add('fade-in');
+    }
+  });
 
   const observer = new IntersectionObserver(
     entries => {
